@@ -23,12 +23,7 @@ public class POORelacióndeComposición {
     starTac.EA.presionar();
     System.out.println("El starTac está "+starTac.EA.IO);
     
-    starTac.Teclado[4][3].setTeclado();
-    starTac.Teclado[4][3].printTeclado();
-}
-   
-}
-   
-   
+    starTac.setTeclado();
+    starTac.printTeclado();
     }
 }
