@@ -12,12 +12,13 @@ package poo.relacióndecomposición;
 public class Telefono {
 botonApagar EA=new botonApagar();
  Tecla [][] Teclado= new Tecla[5][3];
+ static Contacto[] Agenda = new Contacto[100];
+ 
  int p=1;
  int aux;
  char c;
  String y;
- 
- 
+ static int temp; 
 
 public void setTeclado( ){
     for(int i = 0; i < Teclado.length; i++) {
@@ -88,4 +89,37 @@ public void printTeclado(){
         System.out.println();
 
 }
+private static int buscaEspacio(Contacto [] Lista){
+    
+    for (int i=0; i<Agenda.length; i++){
+        if (Agenda[i]==null){
+            temp=i;
+            return i;
+        }
+    } return temp;
 }
+public static void newContacto (String n, String t, String e){
+ Contacto temporal= new Contacto (n, t, e);
+ 
+ Agenda [buscaEspacio(Agenda)]= temporal;
+}
+
+
+public static void printIndice(int indice){
+   if (Agenda[indice]!= null){
+    System.out.println("El contacto en el índice "+indice+" es: "+Agenda[indice].getNombre()+" : "+Agenda[indice].getTel()+" : " +Agenda[indice].getCorreo());
+   } else{
+System.out.println("El índice "+ indice+" está vacío");
+       }
+
+}
+public static void printAgenda(){
+    for (int a=0; a<temp;a++){
+System.out.println(" "+Agenda[a].getNombre()+" : " +Agenda[a].getTel()+" : "+Agenda[a].getCorreo());
+
+}
+
+}
+}
+
+       
